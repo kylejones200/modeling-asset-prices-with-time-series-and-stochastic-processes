@@ -29,7 +29,7 @@ def simulate_gbm(S0: float = 100, mu: float = 0.05, sigma: float = 0.2,
     return t, S
 
 def plot_wiener_process(W: np.ndarray, t: np.ndarray, output_path: Path):
- """Plot Wiener process """
+    """Plot Wiener process """
     fig, ax = plt.subplots(figsize=(10, 4))
     ax.plot(t, W, color="#4A90A4", linewidth=1.2)
     ax.set_xlabel("Time")
@@ -38,7 +38,7 @@ def plot_wiener_process(W: np.ndarray, t: np.ndarray, output_path: Path):
     plt.close()
 
 def plot_gbm_simulation(t: np.ndarray, S: np.ndarray, output_path: Path):
- """Plot geometric Brownian motion """
+    """Plot geometric Brownian motion """
     fig, ax = plt.subplots(figsize=(10, 4))
     ax.plot(t, S, color="#4A90A4", linewidth=1.2)
     ax.set_xlabel("Time")

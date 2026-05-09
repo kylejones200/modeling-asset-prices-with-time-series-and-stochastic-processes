@@ -35,7 +35,7 @@ def main():
     output_dir = Path(args.output_dir) if args.output_dir else Path(config['output']['figures_dir'])
     output_dir.mkdir(exist_ok=True)
     
-        W = simulate_wiener_process(
+    W = simulate_wiener_process(
         config['simulation']['wiener']['n_steps'],
         config['simulation']['wiener']['T'],
         config['simulation']['wiener']['seed']
@@ -43,7 +43,7 @@ def main():
     t_W = np.linspace(0, config['simulation']['wiener']['T'], len(W))
     plot_wiener_process(W, t_W, output_dir / 'wiener_process.png')
     
-        t, S = simulate_gbm(
+    t, S = simulate_gbm(
         config['simulation']['gbm']['S0'],
         config['simulation']['gbm']['mu'],
         config['simulation']['gbm']['sigma'],

@@ -28,21 +28,23 @@ def simulate_gbm(S0: float = 100, mu: float = 0.05, sigma: float = 0.2,
     S = S0 * np.exp(exponent)
     return t, S
 
-def plot_wiener_process(W: np.ndarray, t: np.ndarray, output_path: Path):
+def plot_wiener_process(W: np.ndarray, t: np.ndarray, output_path: Path, plot: bool = False):
     """Plot Wiener process """
-    fig, ax = plt.subplots(figsize=(10, 4))
-    ax.plot(t, W, color="#4A90A4", linewidth=1.2)
-    ax.set_xlabel("Time")
-    ax.set_ylabel("W(t)")
-    plt.savefig(output_path, dpi=100, bbox_inches="tight")
-    plt.close()
+    if plot:
+        fig, ax = plt.subplots(figsize=(10, 4))
+        ax.plot(t, W, color="#4A90A4", linewidth=1.2)
+        ax.set_xlabel("Time")
+        ax.set_ylabel("W(t)")
+        plt.savefig(output_path, dpi=100, bbox_inches="tight")
+        plt.close()
 
-def plot_gbm_simulation(t: np.ndarray, S: np.ndarray, output_path: Path):
+def plot_gbm_simulation(t: np.ndarray, S: np.ndarray, output_path: Path, plot: bool = False):
     """Plot geometric Brownian motion """
-    fig, ax = plt.subplots(figsize=(10, 4))
-    ax.plot(t, S, color="#4A90A4", linewidth=1.2)
-    ax.set_xlabel("Time")
-    ax.set_ylabel("S(t)")
-    plt.savefig(output_path, dpi=100, bbox_inches="tight")
-    plt.close()
+    if plot:
+        fig, ax = plt.subplots(figsize=(10, 4))
+        ax.plot(t, S, color="#4A90A4", linewidth=1.2)
+        ax.set_xlabel("Time")
+        ax.set_ylabel("S(t)")
+        plt.savefig(output_path, dpi=100, bbox_inches="tight")
+        plt.close()
 

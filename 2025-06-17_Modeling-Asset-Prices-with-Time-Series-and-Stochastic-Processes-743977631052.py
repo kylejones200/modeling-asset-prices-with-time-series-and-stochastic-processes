@@ -4,16 +4,11 @@
 
 # Set up matplotlib style
 
+import signalplot
 import matplotlib.pyplot as plt
 import numpy as np
 
-plt.rcParams.update({
-    'axes.grid': False,
-    "font.family": "serif",
-    "axes.spines.top": False,
-    "axes.spines.right": False
-    
-})
+signalplot.apply(font_family='serif')
 
 # Simulate a Wiener process
 def simulate_wiener_process(n_steps=1000, T=1.0):

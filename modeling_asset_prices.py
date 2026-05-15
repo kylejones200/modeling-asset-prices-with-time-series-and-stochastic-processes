@@ -20,7 +20,7 @@ def simulate_wiener_process(n_steps=1000, T=1.0):
 
 # Simulate a geometric Brownian motion
 def simulate_gbm(S0=100, mu=0.05, sigma=0.2, T=1.0, n_steps=1000):
-    dt = T / n_steps
+    T / n_steps
     W = simulate_wiener_process(n_steps, T)
     t = np.linspace(0, T, n_steps + 1)
     exponent = (mu - 0.5 * sigma**2) * t + sigma * W

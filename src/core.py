@@ -2,7 +2,6 @@
 
 import numpy as np
 from pathlib import Path
-from typing import Tuple
 import matplotlib.pyplot as plt
 import logging
 
@@ -20,7 +19,7 @@ def simulate_wiener_process(n_steps: int = 1000, T: float = 1.0, seed: int = Non
     return W
 
 def simulate_gbm(S0: float = 100, mu: float = 0.05, sigma: float = 0.2, 
-                 T: float = 1.0, n_steps: int = 1000, seed: int = None) -> Tuple[np.ndarray, np.ndarray]:
+                 T: float = 1.0, n_steps: int = 1000, seed: int = None) -> tuple[np.ndarray, np.ndarray]:
     """Simulate geometric Brownian motion."""
     W = simulate_wiener_process(n_steps, T, seed)
     t = np.linspace(0, T, n_steps + 1)

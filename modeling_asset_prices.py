@@ -1,14 +1,16 @@
-import signalplot
-import numpy as np
-import matplotlib.pyplot as plt
 import logging
+
+import matplotlib.pyplot as plt
+import numpy as np
+import signalplot
 
 # Set up matplotlib style
 
 # Configure logging
-logging.basicConfig(level=logging.INFO, format='%(message)s')
+logging.basicConfig(level=logging.INFO, format="%(message)s")
 
-signalplot.apply(font_family='serif')
+signalplot.apply(font_family="serif")
+
 
 # Simulate a Wiener process
 def simulate_wiener_process(n_steps=1000, T=1.0):
@@ -17,6 +19,7 @@ def simulate_wiener_process(n_steps=1000, T=1.0):
     W = np.cumsum(increments)
     W = np.insert(W, 0, 0)  # Start at zero
     return W
+
 
 # Simulate a geometric Brownian motion
 def simulate_gbm(S0=100, mu=0.05, sigma=0.2, T=1.0, n_steps=1000):
@@ -27,27 +30,34 @@ def simulate_gbm(S0=100, mu=0.05, sigma=0.2, T=1.0, n_steps=1000):
     S = S0 * np.exp(exponent)
     return t, S
 
-# Plot the Wiener process
-W = simulate_wiener_process()
-t_W = np.linspace(0, 1, len(W))
 
-plt.figure(figsize=(10, 4))
-plt.plot(t_W, W, label="Wiener Process")
-plt.xlabel("Time")
-plt.ylabel("W(t)")
-plt.title("Simulated Wiener Process")
-plt.grid(False)
-plt.savefig("wiener_process.png")
-plt.show()
 
-# Plot the GBM
-t, S = simulate_gbm()
+def main():
+    # Plot the Wiener process
+    W = simulate_wiener_process()
+    t_W = np.linspace(0, 1, len(W))
 
-plt.figure(figsize=(10, 4))
-plt.plot(t, S, label="Geometric Brownian Motion")
-plt.xlabel("Time")
-plt.ylabel("S(t)")
-plt.title("Simulated Geometric Brownian Motion")
-plt.grid(False)
-plt.savefig("gbm_simulation.png")
-plt.show()
+    plt.figure(figsize=(10, 4))
+    plt.plot(t_W, W, label="Wiener Process")
+    plt.xlabel("Time")
+    plt.ylabel("W(t)")
+    plt.title("Simulated Wiener Process")
+    plt.grid(False)
+    plt.savefig("wiener_process.png")
+    plt.show()
+
+    # Plot the GBM
+    t, S = simulate_gbm()
+
+    plt.figure(figsize=(10, 4))
+    plt.plot(t, S, label="Geometric Brownian Motion")
+    plt.xlabel("Time")
+    plt.ylabel("S(t)")
+    plt.title("Simulated Geometric Brownian Motion")
+    plt.grid(False)
+    plt.savefig("gbm_simulation.png")
+    plt.show()
+
+
+if __name__ == "__main__":
+    main()

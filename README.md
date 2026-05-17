@@ -42,3 +42,11 @@ Edit `config.yaml` to customize:
 - Simulations use random number generation. Set seed in config for reproducibility.
 - GBM assumes constant drift and volatility.
 - Step size affects simulation accuracy.
+
+## Disclaimer
+
+Educational/demo code only. Not financial, safety, or engineering advice. Use at your own risk. Verify results independently before any production or operational use.
+
+## License
+
+MIT — see [LICENSE](LICENSE).

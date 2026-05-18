@@ -31,12 +31,10 @@ def simulate_gbm(S0=100, mu=0.05, sigma=0.2, T=1.0, n_steps=1000):
     return t, S
 
 
-
 def main():
     # Plot the Wiener process
     W = simulate_wiener_process()
     t_W = np.linspace(0, 1, len(W))
-
     plt.figure(figsize=(10, 4))
     plt.plot(t_W, W, label="Wiener Process")
     plt.xlabel("Time")
@@ -45,10 +43,8 @@ def main():
     plt.grid(False)
     plt.savefig("wiener_process.png")
     plt.show()
-
     # Plot the GBM
     t, S = simulate_gbm()
-
     plt.figure(figsize=(10, 4))
     plt.plot(t, S, label="Geometric Brownian Motion")
     plt.xlabel("Time")
